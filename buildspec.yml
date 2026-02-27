@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto21
+  build:
+    commands:
+      - mvn -B clean test package
+      - ls -lah target
+      - cp target/*.jar app.jar
+
+artifacts:
+  files:
+    - app.jar
+    - Procfile
